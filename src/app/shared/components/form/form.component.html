@@ -1,0 +1,61 @@
+<form *ngIf="avengerForm" [formGroup]="avengerForm" (submit)="createAvenger()">
+  <div>
+    <input placeholder="Hero" formControlName="hero" />
+    <p
+      *ngIf="
+        !avengerForm.get('hero')?.valid && avengerForm.get('hero')?.touched
+      "
+    >
+      required field
+    </p>
+  </div>
+  <div>
+    <input placeholder="Name" formControlName="name" />
+    <span
+      *ngIf="
+        avengerForm.get('name')?.errors?.['required']
+      "
+    >
+      required field
+    </span>
+    <p
+    *ngIf="
+      avengerForm.get('name')?.errors?.['maxlength']
+    "
+  >
+  Name must be less than 20 characters
+  </p>
+  </div>
+  <div>
+    <input placeholder="Description link" formControlName="link" />
+    <p
+      *ngIf="
+        !avengerForm.get('link')?.valid && avengerForm.get('link')?.touched
+      "
+    >
+      required field
+    </p>
+  </div>
+  <div>
+    <input placeholder="Image link" formControlName="img" />
+    <p
+      *ngIf="
+        !avengerForm.get('img')?.valid && avengerForm.get('img')?.touched
+      "
+    >
+      required field
+    </p>
+  </div>
+  <div>
+    <input placeholder="Id" formControlName="id" />
+    <p
+      *ngIf="
+        !avengerForm.get('id')?.valid && avengerForm.get('id')?.touched
+      "
+    >
+      required field
+    </p>
+  </div>
+
+  <button type="submit">CREATE AVENGER</button>
+</form>

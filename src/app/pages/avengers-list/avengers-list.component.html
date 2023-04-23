@@ -1,0 +1,9 @@
+<div class="div" *ngIf="avengers">
+  <div *ngFor="let avenger of avengers" class="div__div2 button_avenger h1">
+    <h1>{{ avenger.hero }}</h1>
+    <img src="{{ avenger.img }}" alt="image of {{ avenger.hero }}" class="img" />
+    <button (click)="removeAvenger(avenger.id)">Remove</button>
+    <button (click)="navigateToDetail(avenger.id)">Details</button>
+  </div>
+</div>
+
